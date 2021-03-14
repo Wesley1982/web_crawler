@@ -29,8 +29,6 @@ with open ('processor_table.csv', 'w') as f:
 
 
 
-# con = container.find_all('div', {'class': 'card-item component'})
-# print(con)
 
 
 
