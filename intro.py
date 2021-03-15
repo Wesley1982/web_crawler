@@ -13,7 +13,6 @@ with open ('processor_table.csv', 'w') as f:
         for div in soup.find_all('div', {'class': 'content-wrap valign-btm'}):
             span = div.find('span', {'itemprop':'name'})
             processor = re.search(r'\w{0,1}\-?\d{4}\w{0,2}\s?[v]?\d?', span.string).group()
-            print('----------------------------------')
             for li in div.find_all('li'):
                 if 'Cores' in li.string:
                     cores = li.string
