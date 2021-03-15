@@ -16,6 +16,7 @@ with open ('processor_table.csv', 'w') as f:
             for li in div.find_all('li'):
                 if 'Cores' in li.string:
                     cores = li.string
+                    print('test')
             f.write(f'{processor}, {cores}')
             f.write('\n')
             
