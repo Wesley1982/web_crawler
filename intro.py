@@ -3,10 +3,14 @@ import requests
 import re
 import pandas as pd
 
+res = requests.get(f'https://www.intel.co.uk/content/www/uk/en/products/processors/xeon/view-all.html?page={i}')
+html = res.text
+soup = BeautifulSoup(html, 'html.parser')
+last_page = soup.find('span', {'class': 'total-page'}).string.strip()
 with open ('processor_table.csv', 'w') as f:
     f.write('PROCESSOR, CORES')
     f.write('\n')
-    for i in range(1, 12):
+    for i in range(1, int(last_page) + 1):
         res = requests.get(f'https://www.intel.co.uk/content/www/uk/en/products/processors/xeon/view-all.html?page={i}')
         html = res.text
         soup = BeautifulSoup(html, 'html.parser')
